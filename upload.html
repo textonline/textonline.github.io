@@ -27,6 +27,7 @@
     domain: 'db.eu.fauna.com',
     scheme: 'https',
   })
+  var date = new Date();
 function create(){
 
 
@@ -44,7 +45,7 @@ document.getElementById("result").innerHTML = "This name is taken."
     client.query(
   q.Create(
     q.Collection('text-db'),
-    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
+    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: date.toUTCString() ,contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
   )
 )
 .then((ret) =>
