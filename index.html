@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <title>Free Text Hosting via Deez Nuts</title>
         <meta property="og:type" content="website">
-<meta property="og:title" content="Paste on SexyHosting">
+<meta property="og:title" content="Paste on TextOnline">
 <meta property="og:description" content="Free text hosting with custom URLs">
 <meta property="og:image" content="https://i.imgur.com/c4NFOWt.png">
 <meta name="theme-color" content="#bcc21d">
@@ -49,7 +49,7 @@
 <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
     </head>
     <body onload="start()" style="background-color:black">
-      <label style="font-family:'Comic Sans MS'; font-size:15px; color:#11ba0b" id="contentw"></label>
+      <label style="font-family:'Source Code Pro'; font-size:15px; color:#11ba0b" id="contentw"></label>
     </body>
     <script>
         var faunadb = window.faunadb
@@ -71,7 +71,7 @@ client.query(
   )
 )
 .then((ret) =>
-document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:#11ba0b\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:#11ba0b\">Uploaded by <b>" + ret.data.uploader +"</b></label><br><br><label style=\"font-family:'Source Code Pro'; color:#11ba0b; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "<br><br><br>Uploaded anonymously via SexyHosting" + "</label></div>"
+document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:#11ba0b\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:#11ba0b\">Uploaded by <b>" + ret.data.uploader +"</b></label><br><br><label style=\"font-family:'Source Code Pro'; color:#11ba0b; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
 
   )
 .catch(function(e){
