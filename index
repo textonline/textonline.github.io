@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Free Text Hosting via Deez Nuts</title>
+        <meta property="og:type" content="website">
+<meta property="og:title" content="Paste on SexyHosting">
+<meta property="og:description" content="Free text hosting with custom URLs">
+<meta property="og:image" content="https://i.imgur.com/c4NFOWt.png">
+<meta name="theme-color" content="#bcc21d">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+        <style>
+            ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;   
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #11ba0b; 
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #128a0e; 
+}
+            
+    @font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72j00.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+      @font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWjMY.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+            
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
+    </head>
+    <body onload="start()" style="background-color:black">
+      <label style="font-family:'Comic Sans MS'; font-size:15px; color:#11ba0b" id="contentw"></label>
+    </body>
+    <script>
+        var faunadb = window.faunadb
+  var q = faunadb.query
+  var client = new faunadb.Client({
+    secret: 'fnAEWN0RMFAAwFxR2C5vwBRsORnw7OriYRS0cvVd',
+    domain: 'db.eu.fauna.com',
+    scheme: 'https',
+  })
+
+function start(){
+
+    var segments = window.location.href.split('?')
+let name = segments[1]
+
+client.query(
+  q.Get(
+    q.Match(q.Index('posts_by_title'), name)
+  )
+)
+.then((ret) =>
+document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:#11ba0b\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:#11ba0b\">Uploaded by <b>" + ret.data.uploader +"</b></label><br><br><label style=\"font-family:'Source Code Pro'; color:#11ba0b; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "<br><br><br>Uploaded anonymously via SexyHosting" + "</label></div>"
+
+  )
+.catch(function(e){
+   document.getElementById("contentw").innerHTML = "Page not found."
+});
+    
+    
+}
+
+        
+
+    </script>
+</html>
