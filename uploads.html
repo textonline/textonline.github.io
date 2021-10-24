@@ -47,7 +47,7 @@ document.getElementById("result").innerHTML = "This name is taken."
     client.query(
   q.Create(
     q.Collection('text-db'),
-    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i>(Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
+    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i> (Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
   )
 )
 .then((ret) =>
