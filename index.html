@@ -71,7 +71,7 @@ client.query(
   )
 )
 .then((ret) =>
-document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on <b>" + ret.data.creationdate + "</b></label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
+document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate + "</label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
 
   )
 .catch(function(e){
