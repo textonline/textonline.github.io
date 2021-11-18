@@ -125,7 +125,7 @@ button:hover {
     <input maxlength="30" type="text" placeholder="Enter a name..." name="uploader" id="uploader" required>
     
     <label style="color:white" for="content"><b>Content</b></label>
-    <textarea maxlength="750" style="width: 100%; resize: none; font-family:'Red Hat Text'; padding: 15px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #303030; caret-color: white; color: white" placeholder="Enter some text..." name="content" id="content" required></textarea>
+    <textarea maxlength="10000" style="width: 100%; resize: none; font-family:'Red Hat Text'; padding: 15px; margin: 5px 0 22px 0; display: inline-block; border: none; background: #303030; caret-color: white; color: white" placeholder="Enter some text..." name="content" id="content" required></textarea>
   
     <div class="clearfix">
       <button type="button" onclick="create()" class="signupbtn">Upload</button>
@@ -171,7 +171,7 @@ client.query(
     client.query(
   q.Create(
     q.Collection('text-db'),
-    { data: { title: ending, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i> (Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
+    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i> (Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
   )
 )
 .then((ret) =>
