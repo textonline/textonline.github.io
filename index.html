@@ -4,53 +4,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <title>Free Text Hosting via Deez Nuts</title>
+        <title>Loading...</title>
         <meta property="og:type" content="website">
 <meta property="og:title" content="Paste on TextOnline">
 <meta property="og:description" content="Free text hosting with custom URLs">
-<meta property="og:image" content="https://i.imgur.com/c4NFOWt.png">
 <meta name="theme-color" content="#bcc21d">
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-        <style>
-            ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;   
-}
-
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #292828; 
-  border-radius: 2px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #262525; 
-}
-            
-    @font-face {
-  font-family: 'Ubuntu';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/ubuntu/v15/4iCs6KVjbNBYlgoKcg72j00.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-      @font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/sourcecodepro/v14/HI_SiYsKILxRpg3hIP6sJ7fM7PqlMOvWjMY.woff2) format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-            
-    </style>
 <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
     </head>
     <body onload="start()">
         <h1 id="title">Loading...</h1>
-         <label font-size:17px;" id="info">Loading...</label><br><br>
+         <label font-size:19px;" id="info">Loading...</label><br><br>
       <label font-size:15px;" id="content">Loading...</label>
     </body>
     <script>
@@ -73,14 +36,15 @@ client.query(
   )
 )
 .then(function(ret){
-document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
-document.getElementById("title").innerHTML = ret.data.titlereal
+    document.title = ret.data.titlereal + " by " + ret.data.uploader
+    document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
+    document.getElementById("title").innerHTML = ret.data.titlereal
     document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
-        //"<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate + "</label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
-
   })
 .catch(function(e){
    document.getElementById("title").innerHTML = "Page not found."
+    document.getElementById("content").style.visibility = "hidden";
+    document.getElementById("info").style.visibility = "hidden";
 });
     
     
