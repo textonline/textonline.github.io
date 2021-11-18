@@ -142,6 +142,17 @@ button:hover {
     scheme: 'https',
   })
  
+  function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
+}
+    
 function create(){
   
     var date = new Date();
@@ -157,10 +168,16 @@ client.query(
 )
   
 .catch(function(e){
+  let ending = document.getElementById("name").value
+  if(ending == "")
+  {
+    ending == "paste-" + makeid(5)
+  }
+  if
     client.query(
   q.Create(
     q.Collection('text-db'),
-    { data: { title: document.getElementById("name").value, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i> (Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
+    { data: { title: ending, titlereal: document.getElementById("title").value, uploader:  document.getElementById("uploader").value, creationdate: "<b>" + date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear() + "</b> at <b>" + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "</b><i> (Uploader's Local Time)</i>", contents: document.getElementById("content").value.replace(new RegExp('\n','g'), 'linebreak')} },
   )
 )
 .then((ret) =>
