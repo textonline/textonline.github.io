@@ -48,8 +48,9 @@
     </style>
 <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
     </head>
-    <body onload="start()" style="background-color:#323232">
-      <label style="font-family:'Source Code Pro'; font-size:15px; color:white" id="contentw"></label>
+    <body onload="start()">
+        <h1 id="title">Loading...</h1>
+      <label font-size:15px;" id="content">Loading...</label>
     </body>
     <script>
         var faunadb = window.faunadb
@@ -70,10 +71,10 @@ client.query(
     q.Match(q.Index('posts_by_title'), name)
   )
 )
-.then((ret) =>
+.then(function(ret){
 document.getElementById("contentw").innerHTML = "<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate + "</label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
 
-  )
+  })
 .catch(function(e){
    document.getElementById("contentw").innerHTML = "Page not found."
 });
