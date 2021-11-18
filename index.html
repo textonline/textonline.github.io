@@ -50,6 +50,7 @@
     </head>
     <body onload="start()">
         <h1 id="title">Loading...</h1>
+         <label font-size:17px;" id="info">Loading...</label><br><br>
       <label font-size:15px;" id="content">Loading...</label>
     </body>
     <script>
@@ -73,7 +74,8 @@ client.query(
 )
 .then(function(ret){
 document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
-document.getElementById("title").innerHTM = ret.data.titlereal
+document.getElementById("title").innerHTML = ret.data.titlereal
+    document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
         //"<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate + "</label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
 
   })
