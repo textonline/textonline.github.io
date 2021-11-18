@@ -20,7 +20,17 @@
   src: url(https://fonts.gstatic.com/s/redhattext/v6/RrQCbohi_ic6B3yVSzGBrMx6ZI_cy1A6Ok2ML7hwZr_QcLVF.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-        
+        /* Set a style for all buttons */
+button {
+  background-color: #3d3d3d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
         
 ::-webkit-scrollbar {
   width: 10px;
@@ -40,10 +50,12 @@
 }
     </style>
     <body style="background-color:#262626" onload="start()">
-            <div style="text-align:center; display:inline;">
+            <div style="text-align:center;">
         <h1 style="font-family:'Red Hat Text'; color:white" id="title">Loading...</h1>
          <label style="font-size:19px; font-family:'Red Hat Text'; color:white" id="info">Loading...</label><br><br>
-      <label  style="font-size:15px; font-family:'Red Hat Text'; color:white; width:50%; word-break: keep-all;" id="content">Loading...</label>
+      <label  style="font-size:15px; font-family:'Red Hat Text'; color:white;" id="content">Loading...</label><br><br>
+                <button onclick="copytext()">Copy Text</button>
+      <input type="text" style="visibility:hidden" value="Loading..." id="clipboardtext">
         </div>
     </body>
     <script>
@@ -69,6 +81,7 @@ client.query(
     document.title = ret.data.titlereal + " by " + ret.data.uploader
     document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
     document.getElementById("title").innerHTML = ret.data.titlereal
+    document.getElementById("clipboardtext").value = ret.data.contents.replace(/linebreak/g, "<br>")
     document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
   })
 .catch(function(e){
@@ -80,6 +93,20 @@ client.query(
     
     
 }
+        
+        function copytext(){
+            
+            /* Get the text field */
+  var copyText = document.getElementById("clipboardtext");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  
+        }
 
         
 
