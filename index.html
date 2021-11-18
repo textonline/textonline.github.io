@@ -20,16 +20,7 @@
   src: url(https://fonts.gstatic.com/s/redhattext/v6/RrQCbohi_ic6B3yVSzGBrMx6ZI_cy1A6Ok2ML7hwZr_QcLVF.woff2) format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-        /* Set a style for all buttons */
-button {
-  background-color: #3d3d3d;
-  color: white;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-  corner-radius: 10px;
-  opacity: 0.9;
-}
+      
         
 ::-webkit-scrollbar {
   width: 10px;
@@ -53,7 +44,7 @@ button {
         <h1 style="font-family:'Red Hat Text'; color:white" id="title">Loading...</h1>
          <label style="font-size:19px; font-family:'Red Hat Text'; color:white" id="info">Loading...</label><br><br>
       <label  style="font-size:15px; font-family:'Red Hat Text'; color:white;" id="content">Loading...</label><br><br>
-                <button onclick="copytext()">Copy Text</button>
+                <button style="width:30%; height:30px; cursor:pointer; corner-radius:10px; background-color: #3d3d3d;" onclick="copytext()">Copy Text</button>
       <input type="text" style="visibility:hidden" value="Loading..." id="clipboardtext">
         </div>
     </body>
