@@ -168,12 +168,6 @@ client.query(
 )
   
 .catch(function(e){
-  let ending = document.getElementById("name").value
-  if(ending == "")
-  {
-    ending == "paste-" + makeid(5)
-  }
-  
     client.query(
   q.Create(
     q.Collection('text-db'),
