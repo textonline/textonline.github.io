@@ -40,9 +40,11 @@
 }
     </style>
     <body style="background-color:#262626" onload="start()">
+            <div style="text-align:center">
         <h1 style="font-family:'Red Hat Text'; color:white" id="title">Loading...</h1>
          <label style="font-size:19px; font-family:'Red Hat Text'; color:white" id="info">Loading...</label><br><br>
       <label style="font-size:15px; font-family:'Red Hat Text'; color:white" id="content">Loading...</label>
+        </div>
     </body>
     <script>
         var faunadb = window.faunadb
@@ -70,6 +72,7 @@ client.query(
     document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
   })
 .catch(function(e){
+    document.title = "Page not found."
    document.getElementById("title").innerHTML = "Page not found."
     document.getElementById("content").style.visibility = "hidden";
     document.getElementById("info").style.visibility = "hidden";
