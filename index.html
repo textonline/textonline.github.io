@@ -28,7 +28,7 @@ button {
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: 30%;
   opacity: 0.9;
 }
         
@@ -81,7 +81,7 @@ client.query(
     document.title = ret.data.titlereal + " by " + ret.data.uploader
     document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
     document.getElementById("title").innerHTML = ret.data.titlereal
-    document.getElementById("clipboardtext").value = ret.data.contents.replace(/linebreak/g, "<br>")
+    document.getElementById("clipboardtext").value = ret.data.contents.replace(/linebreak/g, "\n")
     document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
   })
 .catch(function(e){
