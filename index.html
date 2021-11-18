@@ -72,7 +72,7 @@ client.query(
   )
 )
 .then(function(ret){
-document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>"
+document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
 document.getElementById("title").innerHTM = ret.data.titlereal
         //"<div style=\"text-align:center; font-family:'Ubuntu'; color:white\"><h1><b>" + ret.data.titlereal + "</b></h1><label style=\"font-size:18px; font-family:'Ubuntu'; color:white\">Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate + "</label><br><br><label style=\"font-family:'Source Code Pro'; color:white; font-size:14px;\">" + ret.data.contents.replace(/linebreak/g, "<br>") + "</label></div>"
 
