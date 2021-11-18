@@ -2,6 +2,7 @@
 
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text" rel="stylesheet">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <title>Loading...</title>
@@ -11,10 +12,19 @@
 <meta name="theme-color" content="#bcc21d">
 <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
     </head>
+    <style>
+  @font-face {
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/redhattext/v6/RrQCbohi_ic6B3yVSzGBrMx6ZI_cy1A6Ok2ML7hwZr_QcLVF.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+    </style>
     <body onload="start()">
-        <h1 id="title">Loading...</h1>
-         <label font-size:19px;" id="info">Loading...</label><br><br>
-      <label font-size:15px;" id="content">Loading...</label>
+        <h1 style="font-family:'Red Hat Text'" id="title">Loading...</h1>
+         <label font-size:19px; font-family:'Red Hat Text'" id="info">Loading...</label><br><br>
+      <label font-size:15px; font-family:'Red Hat Text'" id="content">Loading...</label>
     </body>
     <script>
         var faunadb = window.faunadb
