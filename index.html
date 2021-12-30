@@ -2,103 +2,46 @@
 
 <html>
     <head>
-        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text" rel="stylesheet">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-        <title>Loading...</title>
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Paste on TextOnline">
-<meta property="og:description" content="Free text hosting with custom URLs">
-<meta name="theme-color" content="#bcc21d">
-<script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
+        <title>Redirecting...</title>
     </head>
-    <style>
-  @font-face {
-  font-family: 'Red Hat Text';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/redhattext/v6/RrQCbohi_ic6B3yVSzGBrMx6ZI_cy1A6Ok2ML7hwZr_QcLVF.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-      
-        
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;   
-}
-
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #474747; 
-  border-radius: 2px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #4f4f4f; 
-}
-    </style>
-    <body style="background-color:#262626" onload="start()">
-            <div style="text-align:center;">
-        <h1 style="font-family:'Red Hat Text'; color:white" id="title">Loading...</h1>
-         <label style="font-size:19px; font-family:'Red Hat Text'; color:white" id="info">Loading...</label><br><br>
-             <button style="width:20%; display: block; margin: 0 auto; height:30px; border:none; color:white; cursor:pointer; corner-radius:10px; background-color: #3d3d3d;" onclick="copytext()">Copy Text</button><br>
-      <label  style="font-size:15px; font-family:'Red Hat Text'; color:white;" id="content">Loading...</label><br><br>
-      <input type="text" style="visibility:hidden" value="Loading..." id="clipboardtext">
+    <body onload="redir()">
+        <div style="text-align:center">
+    Redirecting...
         </div>
     </body>
-    <script>
-        var faunadb = window.faunadb
+    <script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
+    <script> 
+ var faunadb = window.faunadb
   var q = faunadb.query
   var client = new faunadb.Client({
-    secret: 'fnAEWN0RMFAAwFxR2C5vwBRsORnw7OriYRS0cvVd',
+    secret: 'fnAEbpmFgZAAyLxHo-xB2sqAgt38PCo0dvdaKvOs',
     domain: 'db.eu.fauna.com',
     scheme: 'https',
   })
+    async function redir(){
 
-function start(){
-
-    var segments = window.location.href.split('?')
-let name = segments[1]
-
+var segments = window.location.href.split("?")
+        
 client.query(
   q.Get(
-    q.Match(q.Index('posts_by_title'), name)
+    q.Match(q.Index('data_from_url'), segments[1])
   )
 )
-.then(function(ret){
-    document.title = ret.data.titlereal + " by " + ret.data.uploader
-    document.getElementById("content").innerHTML = ret.data.contents.replace(/linebreak/g, "<br>")
-    document.getElementById("title").innerHTML = ret.data.titlereal
-    document.getElementById("clipboardtext").value = ret.data.contents.replace(/linebreak/g, "\n")
-    document.getElementById("info").innerHTML = "Uploaded by <b>" + ret.data.uploader +"</b> on " + ret.data.creationdate
-  })
+.then(function(ret) {
+    console.log(ret)
+    window.location.href = ret.data.redirect
+    
+    
+})
 .catch(function(e){
-    document.title = "Page not found."
-   document.getElementById("title").innerHTML = "Page not found."
-    document.getElementById("content").style.visibility = "hidden";
-    document.getElementById("info").style.visibility = "hidden";
+   history.back()
 });
-    
-    
-}
+
         
-        function copytext(){
-            
-            /* Get the text field */
-  var copyText = document.getElementById("clipboardtext");
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
-  
         }
-
-        
 
     </script>
 </html>
