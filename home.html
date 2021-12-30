@@ -5,6 +5,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         <title>Invites.cf | Free Invite Links</title>
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Invites.cf">
+        <meta property="og:description" content="Free invite link creator.">
+        <meta name="theme-color" content="#33aed6">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
@@ -132,15 +136,15 @@ body {
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
         <strong>Error!</strong> <label>An error occured whilst attempting to create your link.</label>
       </div><br>
-<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 600px; margin: 0 auto; padding: 1.5rem;">
+<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 35%; margin: 0 auto; padding: 1.5rem;">
 <label style="color: #cccccc;"><i>Want to create a link? Just fill out the form below.</i></label><br><br>
 <label style="font-size: 18px;">Your Link</label><br>
-<input id="redirect" type="text" placeholder="https://example.com" style="border: none; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:400px"><br><br>
+<input id="redirect" type="text" placeholder="https://example.com" style="border: none; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:60%"><br><br>
 <label style="font-size: 18px;">Custom Link</label><br>
-<label>invites.cf/?</label><input id="ending" type="text" placeholder="custom-link" style="border: none; margin-left: 10px; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:350px"><br><br>
+<label>invites.cf/?</label><input id="ending" type="text" placeholder="custom-link" style="border: none; margin-left: 10px; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:40%"><br><br>
 <button onclick="generate()" style="border: none; border-radius: 5px; cursor: pointer; height: 40px; font-size: 15px; padding-left: 10px; padding-right: 10px; font-family: 'Rubik'; color: white; background-color: #18ab44;">Create Link</button>
 </div><br><br>
-<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 425px; margin: 0 auto; padding: 1.5rem;">
+<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 25%; margin: 0 auto; padding: 1.5rem;">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
     <label style="color: #cccccc;"><i>Here are some recently generated invites.</i></label><br><br>
     <label id="link1">Loading...</label><br>
@@ -195,7 +199,7 @@ document.getElementById("failure").style.display = "block"
 .then(function (ret){
 
 document.getElementById("success").style.display = "block"
-document.getElementById("info").innerHTML = "The generated link is accessible at <a style=\"color:white\" href=\"https://www.invites.cf/?" + ret.data.url + "\">invite.cf/?" + ret.data.url +"</a>"
+document.getElementById("info").innerHTML = "The generated link is accessible at <a style=\"color:white\" href=\"https://www.invites.cf/?" + ret.data.url + "\">https://invite.cf/?" + ret.data.url +"</a>"
 console.log(ret)
 
 })
