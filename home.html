@@ -1,0 +1,231 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>Invites.cf | Free Invite Links</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <style>
+
+  ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;   
+}
+
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #292828; 
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #262525; 
+}
+     
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+  
+      @font-face {
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/redhattext/v6/RrQCbohi_ic6B3yVSzGBrMx6ZI_cy1A6Ok2ML7hwZr_QcLVF.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/rubik/v14/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4iFWkU1Z4Y.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+          
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/robotomono/v13/L0xuDF4xlVMF-BfR8bXMIhJHg45mwgGEFl0_3vq_SeW4Ep0.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+hr { height: 1px;
+    border: 0; border-top: 1px solid white;
+    margin: 1em 0; padding: 0;
+width:50%;
+margin-left:25% !important; margin-right:25% !important; 
+}
+
+body {
+  font-family: "Rubik";
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: rgba(17,17,17,.04);
+  color: white;
+}
+
+.test{
+    
+    background-image: linear-gradient(to right, #262626, #454545);
+
+}
+.fonts{
+    background: -webkit-linear-gradient(#33aed6, #338fd6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.alert {
+  padding: 10px;
+  background-color: #04AA6D;
+  color: white;
+}
+.alert.failure {background-color: #f44336;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.closebtn:hover {
+  color: #cccccc;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+</style>
+<body onload="test()" class="test">
+    <br>
+    <div style="text-align: center;">
+    <label style="font-size: 70px;"><b>Invites.cf</b></label><br>
+    <label style="font-size: 25px; color: #cccccc;"><font class="fonts"><b>Free</b> </font> custom invite links.</label>
+    <br><br><div id="success" style="display:none" class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Success!</strong> <label id="info">The generated link is accessible at https://example.com.</label>
+
+      </div>
+      <div id="failure" style="display:none" class="alert failure">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Error!</strong> <label>An error occured whilst attempting to create your link.</label>
+      </div><br>
+<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 600px; margin: 0 auto; padding: 1.5rem;">
+<label style="color: #cccccc;"><i>Want to create a link? Just fill out the form below.</i></label><br><br>
+<label style="font-size: 18px;">Your Link</label><br>
+<input id="redirect" type="text" placeholder="https://example.com" style="border: none; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:400px"><br><br>
+<label style="font-size: 18px;">Custom Link</label><br>
+<label>invites.cf/?</label><input id="ending" type="text" placeholder="custom-link" style="border: none; margin-left: 10px; height: 25px; border-radius: 7px; background-color: #292929; padding: 5px; color: white; width:350px"><br><br>
+<button onclick="generate()" style="border: none; border-radius: 5px; cursor: pointer; height: 40px; font-size: 15px; padding-left: 10px; padding-right: 10px; font-family: 'Rubik'; color: white; background-color: #18ab44;">Create Link</button>
+</div><br><br>
+<div style="background-color: #313131; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 425px; margin: 0 auto; padding: 1.5rem;">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <label style="color: #cccccc;"><i>Here are some recently generated invites.</i></label><br><br>
+    <label id="link1">Loading...</label><br>
+    <label id="link2">Loading...</label><br>
+    <label id="link3">Loading...</label><br>
+    <label id="link4">Loading...</label><br>
+    <label id="link5">Loading...</label><br>
+</div>
+
+</div><br><br>
+<div class="footer">
+    <p style="color: #cccccc;"><i>Copyright © 2020-2021 AbSq | All Rights Reserved.</i></p>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/faunadb@latest/dist/faunadb.js"></script>
+<script>
+    var faunadb = window.faunadb
+  var q = faunadb.query
+  var client = new faunadb.Client({
+    secret: 'fnAEbpmFgZAAyLxHo-xB2sqAgt38PCo0dvdaKvOs',
+    domain: 'db.eu.fauna.com',
+    scheme: 'https',
+  })
+
+    async function generate(){
+            
+        document.getElementById("failure").style.display = "none"
+        document.getElementById("success").style.display = "none"
+
+            
+client.query(
+  q.Get(
+    q.Match(q.Index('data_from_url'), document.getElementById("ending").value)
+  )
+)
+.then((ret) => 
+      
+document.getElementById("failure").style.display = "block"
+
+)
+.catch(function(e){
+    if(document.getElementById("redirect").value == "" || document.getElementById("ending").value == "")
+    {
+        document.getElementById("failure").style.display = "block"
+    }
+    else{
+    client.query(
+  q.Create(
+    q.Collection('links'),
+    { data: { url: document.getElementById("ending").value, redirect:  document.getElementById("redirect").value } },
+  )
+)
+.then(function (ret){
+
+document.getElementById("success").style.display = "block"
+document.getElementById("info").innerHTML = "The generated link is accessible at <a style=\"color:white\" href=\"https://www.invites.cf/?" + ret.data.url + "\">invite.cf/?" + ret.data.url +"</a>"
+console.log(ret)
+
+})
+    }
+});
+
+
+    }
+
+
+    function test(){
+    client.query(
+   q.Map(
+  q.Paginate(q.Documents(q.Collection('links'))),
+  q.Lambda(x => q.Get(x))
+)).then (function(x){    
+
+    document.getElementById("link1").innerText = "invites.cf/?" + x.data[x.data.length - 1].data.url
+    document.getElementById("link2").innerText = "invites.cf/?" + x.data[x.data.length - 2].data.url
+    document.getElementById("link3").innerText = "invites.cf/?" + x.data[x.data.length - 3].data.url
+    document.getElementById("link4").innerText = "invites.cf/?" + x.data[x.data.length - 4].data.url
+    document.getElementById("link5").innerText = "invites.cf/?" + x.data[x.data.length - 5].data.url
+    
+
+
+                                   
+                    })
+      
+    
+  }
+</script>
+</body>
+</html>
